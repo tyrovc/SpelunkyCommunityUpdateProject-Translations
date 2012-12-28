@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="oLanguage" type="RESOURCE"/>
+  <resource name="oLanguageMenu" type="RESOURCE"/>
+  <resource name="oLanguageOk" type="RESOURCE"/>
+  <resource name="oLanguageUp" type="RESOURCE"/>
+  <resource name="oLanguageDown" type="RESOURCE"/>
+</resources>

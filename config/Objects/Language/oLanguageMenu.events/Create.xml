@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">scrParseLanguages();
+selection=0;
+flagx=40;
+flagy=45;
+
+
+for(i=0;i&lt;global.languagearraylength;i+=1){
+    if(global.languageid==string(global.languagearray[i].languageid)){
+        selection=i;
+    }
+}
+
+
+global.languagearray[selection].x=flagx;
+global.languagearray[selection].y=flagy;
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

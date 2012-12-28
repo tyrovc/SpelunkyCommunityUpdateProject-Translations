@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_set_font(global.myFont);
+draw_set_color(c_yellow);
+//Store what current font is
+var myfontprev, myfontsmallprev;
+//Change font so that the localized language name can be drawn
+switch(global.languagearray[selection].charset){
+        case ANSI_CHARSET: draw_set_font(fontAnsi); break;
+        case DEFAULT_CHARSET: draw_set_font(fontAnsi); break;
+        case EASTEUROPE_CHARSET: draw_set_font(fontEastEurope); break;
+        case RUSSIAN_CHARSET: draw_set_font(fontRussian); break;
+        case SYMBOL_CHARSET: draw_set_font(fontAnsi);break;
+        case SHIFTJIS_CHARSET: draw_set_font(fontJapanese); break;
+        case HANGEUL_CHARSET: draw_set_font(fontKoreanH); break;
+        case GB2312_CHARSET: draw_set_font(fontChineseSimplified); break;
+        case CHINESEBIG5_CHARSET: draw_set_font(fontChineseTraditional); break;
+        case JOHAB_CHARSET: draw_set_font(fontKoreanJ); break;
+        case HEBREW_CHARSET: draw_set_font(fontHebrew); break;
+        case ARABIC_CHARSET: draw_set_font(fontArabic); break;
+        case GREEK_CHARSET: draw_set_font(fontGreek); break;
+        case TURKISH_CHARSET: draw_set_font(fontTurkish); break;
+        case VIETNAMESE_CHARSET: draw_set_font(fontVietnamese); break;
+        case THAI_CHARSET: draw_set_font(fontThai); break;
+        case MAC_CHARSET: draw_set_font(fontAnsi); break;
+        case BALTIC_CHARSET:  draw_set_font(fontBaltic); break;
+        case OEM_CHARSET: draw_set_font(fontAnsi); break;
+        default: draw_set_font(fontAnsi); break;
+}
+//Draw language name
+if(is_string(global.languagearray[selection].name)){
+    scrDrawText(flagx+16, flagy-8, 0, false, global.languagearray[selection].name, true);
+}
+//Restore what the font was
+draw_set_font(global.myFont);
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

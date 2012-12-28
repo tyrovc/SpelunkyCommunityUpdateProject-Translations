@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="scrParseLanguages" type="RESOURCE"/>
+  <resource name="scrRotatingFlagSprite" type="RESOURCE"/>
+  <resource name="scrDefaultLanguage" type="RESOURCE"/>
+  <resource name="scrLoadLanguage" type="RESOURCE"/>
+  <resource name="scrDrawText" type="RESOURCE"/>
+  <resource name="scrExplodeString" type="RESOURCE"/>
+</resources>
