@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (oPlayer1.y &lt; 156)
+{
+draw_set_font(global.myFontSmall);
+draw_set_color(c_yellow);
+scrDrawText(128+16, 32, 2, false, global.mSecretchallenges, true);//"SECRET CHALLENGES"
+draw_set_color(c_white);
+tMini1 = floor(scrGetScore(10) / 10000);
+tMini2 = floor((scrGetScore(10)-(tMini1*10000)) / 100);
+tMini3 = floor(scrGetScore(10)-(tMini1*10000)-(tMini2*100));
+scrDrawText(128, 48, 2, false, global.mSunscore + string(tMini1), true);//"SUN:   "
+scrDrawText(128, 64, 2, false, global.mMoonscore + string(tMini2), true);//"MOON:  "
+scrDrawText(128, 80, 2, false, global.mStarsscore+ string(tMini3), true);//"STARS: "
+
+if (oPlayer1.y &lt; 48+16)
+{
+    draw_set_color(c_yellow);
+    scrDrawText(168, 96, 2, false, global.mSunroom, true);//"SUN ROOM"
+    draw_set_color(c_white);
+    if (tMoney &gt;= sunGold)
+    {
+        if (false) // (global.isTunnelMan)
+        {
+            scrDrawText(128, 112, 2, false, "NO MATTOCKS ALLOWED!", true);
+            scrDrawText(128, 128, 2, false, "THIS MEANS YOU!", true);
+        }
+        else
+        {
+            scrDrawText(128, 112, 2, false, global.mSuninstruction, true);//"KEEP YOURSELF AND");
+            scrDrawText(128, 128, 2, false, global.mSuninstruction2, true);//"THE DAMSEL ALIVE");
+            scrDrawText(128, 144, 2, false, global.mSuninstruction3, true);//"FOR AS LONG AS");
+            scrDrawText(128, 160, 2, false, global.mSuninstruction4, true);//"POSSIBLE!");
+        }
+    }
+    else
+    {
+        scrDrawText(128, 112, 2, false, global.mLocked, true);//"LOCKED."
+    }
+}
+else if (oPlayer1.y &lt; 80+16)
+{
+    draw_set_color(c_yellow);
+    scrDrawText(168, 96, 2, global.mMoonroom);//"MOON ROOM"
+    draw_set_color(c_white);
+    if (tTime &gt; 0 and tTime &lt;= moonGold)
+    {
+        if (false) // (global.isTunnelMan)
+        {
+            scrDrawText(128, 112, 2, false, "NO MATTOCKS ALLOWED!", true);
+            scrDrawText(128, 128, 2, false, "THIS MEANS YOU!", true);
+        }
+        else
+        {
+            scrDrawText(128, 112, 2, false, global.mMooninstruction, true);//"SHOOT THE MOVING");
+            scrDrawText(128, 128, 2, false, global.mMooninstruction2, true);//"TARGETS WITH YOUR");
+            scrDrawText(128, 144, 2, false, global.mMooninstruction3, true);//"BOW AND ARROWS!");
+        }
+    }
+    else
+    {
+        scrDrawText(128, 112, 2, false, global.mLocked, true);
+    }
+}
+else if (oPlayer1.y &lt; 112+16)
+{
+    draw_set_color(c_yellow);
+    scrDrawText(168, 96, 2, false, global.mStarsroom, true);//"STARS ROOM"
+    draw_set_color(c_white);
+    if (tKills &gt;= starsGold)
+    {
+        if (false) // (global.isTunnelMan)
+        {
+            scrDrawText(128, 112, 2, false, "NO MATTOCKS ALLOWED!", true);
+            scrDrawText(128, 128, 2, false, "THIS MEANS YOU!", true);
+        }
+        else
+        {
+            scrDrawText(128, 112, 2, false, global.mStarsinstruction, true);//"KILL AS MANY ANGRY");
+            scrDrawText(128, 128, 2, false, global.mStarsinstruction2, true);//"SHOPKEEPS AS YOU CAN");
+            scrDrawText(128, 144, 2, false, global.mStarsinstruction3, true);//"BEFORE THEY GET YOU!");
+        }
+    }
+    else
+    {
+        scrDrawText(128, 112, 2, false, global.mLocked, true);
+    }
+}
+else if (oPlayer1.y &lt; 160)
+{
+    draw_set_color(c_yellow);
+    scrDrawText(160, 96, 2, false, global.mChangingroom, true);//"CHANGING ROOM"
+    draw_set_color(c_white);
+    if (tSaves &gt;= 8)
+    {
+        scrDrawText(128, 112, 2, false, global.mLadyinred, true);//"LADY IN RED...");
+    }
+    else
+    {
+        scrDrawText(128, 112, 2, false, global.mLocked, true);
+    }
+    with oNew
+    {
+        visible = false;
+    }
+}
+
+}
+else
+{
+with oNew
+{
+    visible = true;
+}
+draw_set_font(global.myFontSmall);
+draw_set_color(c_yellow);
+scrDrawText(160, 32, 2, false, global.mTopdefilers, true);//"TOP DEFILERS"
+draw_set_color(c_white);
+scrDrawText(128, 48, 2, false, global.mMoney + string(scrGetScore(1)), true);//"MONEY:  "
+scrDrawText(128, 64, 2, false, global.mKills + string(scrGetScore(3)), true);//"KILLS:  "
+scrDrawText(128, 80, 2, false, global.mSaves + string(scrGetScore(4)), true);//"SAVES:  "
+// only display time if won
+if (scrGetScore(6) &gt; 0)
+{
+    s = scrGetScore(2);
+    // s = floor(s / 1000);
+    m = 0;
+    while (s &gt; 59)
+    {
+        s -= 60;
+        m += 1;
+    }
+    
+    draw_set_color(c_white);
+    scrDrawText(128, 96, 2, false, global.mTime, true);//"TIME: "
+    if (s &lt; 10) scrDrawText(128+64, 96, 2, false, string(m) + ":0" + string(s), true);
+    else scrDrawText(128+64, 96, 2, false, string(m) + ":" + string(s), true);
+}
+draw_set_color(c_yellow);
+scrDrawText(168, 112, 2, false, global.mStatistics, true);//"STATISTICS"
+draw_set_color(c_white);
+scrDrawText(128, 128, 2, false, global.mPlays + string(scrGetScore(5)), true);//"PLAYS:  "
+scrDrawText(128, 144, 2, false, global.mDeaths + string(scrGetScore(7)), true);//"DEATHS: "
+scrDrawText(128, 160, 2, false, global.mWins + string(scrGetScore(6)), true);//"WINS:   "
+
+block = instance_nearest(160, 240, oPushBlock);
+if (not oButtonHighscore.pushed and block.x &gt; 160)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    //strLen = string_length(global.mThisclears)*8; //"THIS WILL CLEAR EVERYTHING!"
+    //n = 320 - strLen;
+    //n = ceil(n / 2);
+    scrDrawText(0, 216, 2, true, global.mThisclears);
+}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

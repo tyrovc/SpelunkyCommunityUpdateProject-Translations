@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_set_font(global.myFontSmall);
+draw_set_color(c_white);
+
+if (status == GET_FILE_NAME)
+{
+    scrDrawText(32, 64, 2, false, global.mLevelselectload/*"LOAD LEVEL:"*/ +" " + levelName);
+    draw_set_color(c_yellow);
+    scrDrawText(40, 96, 2, false, global.mLevelselectlevels/*LEVELS*/);
+    scrDrawText(224, 96, 2, false, string(page) + "/" + string(numPages));
+    if (msgTimer &gt; 0)
+    {
+        draw_set_color(c_red);
+        scrDrawText(32, 224, 2, false, global.mLevelselectnotexist/*"NO SUCH LEVEL EXISTS!"*/);
+    }
+    else scrDrawText(32, 224, 2, false, global.mLevelselectreturn/*"PRESS ESCAPE TO RETURN TO TITLE."*/);
+    draw_set_color(c_white);
+    n = 112;
+    m = 0;
+    i = (page-1)*10;
+    while (m &lt; 10 and i+m &lt; numLevels)
+    {
+        scrDrawText(40, n, 2, false, string_upper(levelList[i+m]));
+        n += 8;
+        m += 1;
+    }
+}
+
+if (blackOut)
+{
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, 320, 240, false);
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

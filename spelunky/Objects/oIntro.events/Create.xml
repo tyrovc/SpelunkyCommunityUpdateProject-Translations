@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">fadeIn = false;
+fadeOut = false;
+fadeLevel = 1;
+// instance_create(-32, 184, oPDummy3);
+
+drawStatus = 0;
+alarm[11] = 20;
+
+str = "";
+n = rand(1,8);
+switch (n)
+{
+    case 1: { str1 = global.mIntro; break; }//"AS THE MOON BURNED BRIGHT ABOVE,"; break; }
+    case 2: { str1 = global.mIntro2; break; }//"WITH THE DESERT STRETCHING BEHIND ME,"; break; }
+    case 3: { str1 = global.mIntro3; break; }//"AFTER I DOUBLE-CHECKED MY MAP,"; break; }
+    case 4: { str1 = global.mIntro4; break; }//"MY LIPS CRACKED AND COVERED IN SAND,"; break; }
+    case 5: { str1 = global.mIntro5; break; }//"WITH FATE GUIDING MY EVERY MOVE,"; break; }
+    case 6: { str1 = global.mIntro6; break; }//"PUTTING THE FADED PHOTO IN MY POCKET,"; break; }
+    case 7: { str1 = global.mIntro7; break; }//"AS I RECALLED MY FATHER'S LAST WORDS,"; break; }
+    case 8: { str1 = global.mIntro8; break; }//"MY MEMORY SLIPPING AWAY FROM ME,"; break; }
+}
+n = rand(1,8);
+switch (n)
+{
+    case 1: { str2 = global.mIntro9; break; }//"I STRODE VALIANTLY TOWARD MY DESTINY,"; break; }
+    case 2: { str2 = global.mIntro10; break; }//"I SQUEEZED THE WHIP AT MY SIDE,"; break; }
+    case 3: { str2 = global.mIntro11; break; }//"I DRAINED THE REST OF MY CANTEEN,"; break; }
+    case 4: { str2 = global.mIntro12; break; }//"I SPOTTED THE CAVE'S ENTRANCE,"; break; }
+    case 5: { str2 = global.mIntro13; break; }//"I FURROWED MY BROW,"; break; }
+    case 6: { str2 = global.mIntro14; break; }//"I PAID MY BEDOUIN GUIDE,"; break; }
+    case 7: { str2 = global.mIntro15; break; }//"I DISMOUNTED MY CAMEL,"; break; }
+    case 8: { str2 = global.mIntro16; break; }//"I SQUINTED INTO THE DARKNESS,"; break; }
+}
+n = rand(1,8);
+switch (n)
+{
+    case 1: { str3 = global.mIntro17; break; }//"AND THOUGHT OF HER ONE LAST TIME."; break; }
+    case 2: { str3 = global.mIntro18; break; }//"AND HELD MY HAT AGAINST THE WIND."; break; }
+    case 3: { str3 = global.mIntro19; break; }//"AND A COLD CHILL TOOK HOLD OF ME."; break; }
+    case 4: { str3 = global.mIntro20; break; }//"AND WONDERED HOW LONG I'D BE BELOW."; break; }
+    case 5: { str3 = global.mIntro21; break; }//"AND VOWED TO RETURN VICTORIOUS."; break; }
+    case 6: { str3 = global.mIntro22; break; }//"AND SWORE I HEARD VOICES UP AHEAD."; break; }
+    case 7: { str3 = global.mIntro23; break; }//"AND FELT THE GODS SMILING UPON ME."; break; }
+    case 8: { str3 = global.mIntro24; break; }//"AND THAT'S WHEN IT ALL STARTED."; break; }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

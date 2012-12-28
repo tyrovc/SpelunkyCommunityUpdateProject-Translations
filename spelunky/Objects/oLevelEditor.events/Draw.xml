@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_set_font(global.myFontSmall);
+draw_set_color(c_white);
+
+if (status == GET_FILE_NAME)
+{
+    scrDrawText(9, 116, 2, false, global.mEditlevel+" " + levelName); //"EDIT LEVEL: " + levelName
+}
+else if (status == EDIT_DOOR)
+{
+    scrDrawText(9, 100, 2, false, global.mEditlabel);//"LABEL:"
+    scrDrawText(9, 116, 2, false, textEdit);
+}
+else if (status == EDIT_MSG)
+{
+    scrDrawText(9, 100, 2, false, global.mEditmessage);//"MESSAGE:"
+    scrDrawText(9, 116, 2, false, textEdit);
+}
+else if (status == INFO_NAME)
+{
+    scrDrawText(9, 116, 2, false, global.mEditlevelname + " " + string(levelName)); //"LEVEL NAME: "
+}
+else if (status == INFO_AUTHOR)
+{
+    scrDrawText(9, 116, 2, false, global.mEditauthor + string(author)); //"AUTHOR: "
+}
+else if (status == INFO_MUSIC)
+{
+    scrDrawText(9, 116, 2, false, global.mEditmusic + string(music)); //"MUSIC: "
+}
+else if (status == INFO_LIFE)
+{
+    scrDrawText(9, 116, 2, false, global.mEditstartlife + " " + string(lifeStart));//"START LIFE: "
+}
+else if (status == INFO_BOMBS)
+{
+    scrDrawText(9, 116, 2, false, global.mEditstartbombs + " " + string(bombStart));//"START BOMBS: "
+}
+else if (status == INFO_ROPE)
+{
+    scrDrawText(9, 116, 2, false, global.mEditstartrope + " " + string(ropeStart));//"START ROPE: "
+}
+else if (status == INFO_NEXT)
+{
+    scrDrawText(9, 116, 2, false, global.mEditnextlevel + " " + string(nextLevel));//"NEXT LEVEL: "
+}
+else if (status == EXIT or status == NEW)
+{
+    scrDrawText(0, 116, 2, true, global.mSavelevel);//"SAVE LEVEL? (Y/N)"
+    
+    m = 16;
+    draw_set_color(c_yellow);
+    if not (instance_exists(oEntrance))
+    {
+        scrDrawText(0, 116+m, 2, true, global.mWarningnoentrance);//"WARNING: NO ENTRANCE!"
+        m += 8;
+    }
+    
+    if not (instance_exists(oExit))
+    {
+        scrDrawText(0, 116+m, 2, true, global.mWarningnoexit);//"WARNING: NO EXIT!"
+    }
+}
+else
+{
+    //draw_text(view_xview[0], view_yview[0], string(mouse_x) + ", " + string(mouse_y));
+    if (view_yview[0] == 0)
+    {
+        scrDrawText(40, view_hview-32, 2, false, levelName + " BY " + author);
+        scrDrawText(40, view_hview-16, 2, false, string(oCursObj.x) + ", " + string(oCursObj.y));
+    }
+    else
+    {
+        scrDrawText(40, 16, 2, false, levelName + " BY " + author);
+        scrDrawText(40, 32, 2, false, string(oCursObj.x) + ", " + string(oCursObj.y));
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

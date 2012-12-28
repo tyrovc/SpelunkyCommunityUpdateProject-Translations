@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_set_font(global.myFontSmall);
+draw_set_color(c_white);
+if (instance_exists(oTunnelMan))
+{
+    person = instance_nearest(176, 176, oTunnelMan);
+    if (person.talk == 1)
+    {
+        //strLen = string_length(global.mTunnelmanintroduce)*8; //"HEY THERE! I'M THE TUNNEL MAN!"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        //draw_text(n, 208, global.mTunnelmanintroduce);
+        scrDrawText(0, 208, 2, true, global.mTunnelmanintroduce);
+        //strLen = string_length(global.mTunnelmandigsshortcuts)*8; //"I DIG SHORTCUTS."
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        //draw_text(n, 216, global.mTunnelmandigsshortcuts);
+        scrDrawText(0, 216, 2, true, global.mTunnelmandigsshortcuts);
+    }
+    else if (person.talk == 2)
+    {
+        //strLen = string_length(global.mTunnelmanlendme)*8; //"CAN YOU LEND ME A LITTLE MONEY?"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        //draw_text(n, 208, global.mTunnelmanlendme);
+        scrDrawText(0, 208, 2, true, global.mTunnelmanlendme);
+        //if (isRoom("rTransition1x") or isRoom("rTransition3x")) strLen = string_length(global.mTunnelmanneed + string(global.tunnel1) + " " + global.mForanewshortcut)*8;
+        //else strLen = string_length(global.mTunnelmanneed + string(global.tunnel2) + " " + global.mForanewshortcut)*8; //"I NEED $" "FOR A NEW SHORTCUT."
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        if (isRoom("rTransition1x") or isRoom("rTransition3x")) scrDrawText(0, 216, 2, true, global.mTunnelmanneed + string(global.tunnel1) + " " + global.mForanewshortcut);
+        else scrDrawText(0, 216, 2, true, global.mTunnelmanneed + string(global.tunnel2) + " " + global.mForanewshortcut);
+        draw_set_color(c_yellow);
+        scrDrawText(0, 224, 2, true, global.mTunnelmandonate + " " + string(oTunnelMan.donate)); //"DONATE:"
+        draw_set_color(c_white);
+    }
+    else if (person.talk == 3)
+    {
+        //strLen = string_length(global.mTunnelthanks)*8; //"THANKS! YOU WON'T REGRET IT!"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        scrDrawText(0, 216, 2, true, global.mTunnelthanks);
+    }
+    else if (person.talk == 4)
+    {
+        //strLen = string_length(global.mTunnelneverfinish)*8; //"I'LL NEVER GET THIS SHORTCUT BUILT!"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        scrDrawText(0, 216, 2, true, global.mTunnelneverfinish);
+    }
+    else if (person.talk == 5)
+    {
+        //strLen = string_length(global.mShortcutbuilt)*8; //"ONE SHORTCUT, COMING UP!"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        scrDrawText(0, 216, 2, true, global.mShortcutbuilt);
+    }
+}
+else if (instance_exists(oDamselKiss))
+{
+    person = instance_nearest(176, 176, oDamselKiss);
+    if (person.kissed)
+    {
+        //strLen = string_length(global.mSaveddamsel)*8; //"MY HERO!"
+        //n = 320 - strLen;
+        //n = ceil(n / 2);
+        scrDrawText(0, 216, 2, true, global.mSaveddamsel);
+    }
+}
+/* debug
+else
+{
+        draw_text(8, 208, string(debugCounter));
+        if (global.genBlackMarket) draw_text(8, 216, "MARKET : " + string(drawLoot) + " :$ " + string(moneyCount) + " :$ " + string(global.xmoney) + " :A " + string(alarm[0]) + " :A " + string(alarm[1]));
+}
+*/
+
+draw_set_color(c_yellow);
+if (global.customLevel) scrDrawText(32, 48, 2, false, global.customLevelName + " " + global.mCompletedlevel, true); //"COMPLETED!"
+else if (global.currLevel-1 &lt; 1) scrDrawText(32, 48, 2, false, global.mTutorialcompleted, true); //"TUTORIAL CAVE COMPLETED!"
+else scrDrawText(32, 48, 2, false, global.mLevel/*LEVEL*/+" " + string(global.currLevel-1) + " " + global.mCompletedlevel, true); //"COMPLETED!"
+draw_set_color(c_white);
+scrDrawText(32, 64, 2, false, global.mLeveltime, true);//"TIME  = "
+scrDrawText(32, 80, 2, false, global.mLeveloot, true);//"LOOT  = "
+scrDrawText(32, 96, 2, false, global.mLevelkills, true);//"KILLS = "
+scrDrawText(32, 112, 2, false, global.mLevelmoney, true);//"MONEY = "
+
+if (drawLoot &gt;= 1 and not isLoot)
+{
+    scrDrawText(96, 80, 2, false, global.mNone, true);//"NONE"
+}
+
+if (drawLoot &gt; -2)
+{
+    s = global.xtime;
+    s = floor(s / 1000);
+    m = 0;
+    while (s &gt; 59)
+    {
+        s -= 60;
+        m += 1;
+    }
+    
+    // don't create a dark level if player is attempting a speed run
+    if (s &lt;= 20) global.noDarkLevel = true;
+    else global.noDarkLevel = false;
+    
+    s2 = global.time;
+    s2 = floor(s2 / 1000);
+    m2 = 0;
+    while (s2 &gt; 59)
+    {
+        s2 -= 60;
+        m2 += 1;
+    }
+    
+    if (s &lt; 10 and s2 &lt; 10) draw_text(96, 64, string(m) + ":0" + string(s) + " / " + string(m2) + ":0" + string(s2));
+    else if (s &lt; 10) draw_text(96, 64, string(m) + ":0" + string(s) + " / " + string(m2) + ":" + string(s2));
+    else if (s2 &lt; 10) draw_text(96, 64, string(m) + ":" + string(s) + " / " + string(m2) + ":0" + string(s2));
+    else draw_text(96, 64, string(m) + ":" + string(s) + " / " + string(m2) + ":" + string(s2));
+}
+
+if (drawLoot == 2)
+{
+    if (not isKills)
+    {
+        scrDrawText(96, 96, 2, false, global.mNone, true);//"NONE"
+    }
+    draw_text(96, 112, "$" + string(moneyCount) + " / $" + string(global.money));
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

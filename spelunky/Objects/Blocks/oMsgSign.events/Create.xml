@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">type = "Message Sign";
+
+// tutorial cave init
+if (isRoom("rLevelEditor") or isRoom("rLoadLevel"))
+{
+    message = "";
+    message2 = "";
+}
+else if (x == 32 and y == 64)
+{
+    message = global.mTutorial1//"WELCOME TO THE TUTORIAL CAVE!";
+    message2 = global.mTutorial2//"THIS MIGHT BE YOUR FIRST TIME PLAYING.";
+
+}
+else if (x == 80 and y == 96)
+{
+    if (global.gamepadOn) message = global.mPress + " " + scrGetJoy(global.joyJumpVal) + " " +global.mTojump;
+    else message = global.mPress + " " + scrGetKey(global.keyJumpVal) + " " +global.mTojump;
+    message2 = "";
+
+}
+else if (x == 176 and y == 96)
+{
+    message = global.mTutorial3//"YOU CAN HANG ON LEDGES, TOO!";
+    message2 = "";
+
+}
+else if (x == 240 and y == 64)
+{
+    if (global.gamepadOn) message = global.mPress + " " + scrGetJoy(global.joyAttackVal) + " " + global.mTousewhip;//"TO USE YOUR WHIP.";
+    else message = global.mPress + " " + scrGetKey(global.keyAttackVal) + " " + global.mTousewhip;
+    message2 = "";
+
+}
+else if (x == 384 and y == 96)
+{
+    message = global.mTutorial4//"COLLECT THE TREASURE!";
+    message2 = "";
+
+}
+else if (x == 512 and y == 32)
+{
+    if (global.gamepadOn) message = global.mHoldupandpress/*"HOLD UP AND PRESS"*/+" " + scrGetJoy(global.joyAttackVal) + " " + global.mToopenchests; //" TO OPEN CHESTS.";
+    else message = global.mHoldupandpress + " " + scrGetKey(global.keyAttackVal) + " " + global.mToopenchests;
+    message2 = "";
+
+}
+else if (x == 544 and y == 112)
+{
+    message = global.mTutorial5//"HOLD DOWN TO DUCK AND CRAWL.";
+    message2 = "";
+
+}
+else if (x == 576 and y == 128)
+{
+    message = global.mTutorial6//"CRAWL OVER THE EDGE TO DO A FLIP HANG.";
+    message2 = global.mTutorial7//"FALLING TOO FAR CAN REALLY HURT!";
+
+}
+else if (x == 640 and y == 96)
+{
+    message = global.mTutorial8//"HOLD UP TO CLIMB THE LADDER.";
+    message2 = "";
+
+}
+else if (x == 608 and y == 256)
+{
+    if (global.gamepadOn) message = global.mDuckandpress/*"DUCK AND PRESS "*/+" "+ scrGetJoy(global.joyAttackVal) + " " + global.mTopickupitems;//" TO PICK UP ITEMS.";
+    else message = global.mDuckandpress+" "+ scrGetKey(global.keyAttackVal) + " " + global.mTopickupitems;
+    message2 = "";
+
+}
+else if (x == 576 and y == 256)
+{
+    if (global.gamepadOn) message = global.mPress + " " + scrGetJoy(global.joyAttackVal) + " " + global.Tothroworuseitems;//" TO THROW OR USE ITEMS.";
+    else message = global.mPress + " " + scrGetKey(global.keyAttackVal) + " " + global.Tothroworuseitems;
+    message2 = global.mTutorial9//"HOLD UP TO THROW HIGH AND DOWN TO DROP.";
+
+}
+else if (x == 496 and y == 256)
+{
+    if (global.gamepadOn) message = global.mPress+" "+ scrGetJoy(global.joyItemVal) + " " + global.mToselectyourropeand;//"TO SELECT YOUR ROPE AND";
+    else message = global.mPress+" "+ scrGetKey(global.keyItemVal) + " " + global.mToselectyourropeand;
+    if (global.gamepadOn) message2 = scrGetJoy(global.joyAttackVal) + " " + global.mTouseit;//" TO USE IT.";
+    else message2 = scrGetKey(global.keyAttackVal) + " " +global.mTouseit;
+
+}
+else if (x == 432 and y == 176)
+{
+    if (global.gamepadOn) message = global.mCrouchandpress/*"CROUCH AND PRESS"*/ + " " + scrGetJoy(global.joyAttackVal);
+    else message = global.mCrouchandpress + " " +  scrGetKey(global.keyAttackVal);
+    message2 = global.mTutorial10;//"TO THROW A ROPE DOWN A LEDGE.";
+
+}
+else if (x == 384 and y == 208)
+{
+    if (global.gamepadOn) message = global.mTorunholddown/*"TO RUN, HOLD DOWN "*/ + " " +  scrGetJoy(global.joyAttackVal) + " "+global.mOr+" " + scrGetJoy(global.joyRunVal) + ".";
+    else message = global.mTorunholddown + " " +  scrGetKey(global.keyAttackVal) + " "+global.mOr+" " + scrGetKey(global.keyRunVal) + ".";
+    message2 = "";
+}
+else if (x == 256 and y == 208)
+{
+    message = global.mTutorial11//"OPEN THIS CRATE FOR A BAG OF BOMBS.";
+    message2 = "";
+
+}
+else if (x == 224 and y == 208)
+{
+    if (global.gamepadOn) message = global.mPress+" "+ scrGetJoy(global.joyItemVal) + " " + global.mToselectbombsand;//" TO SELECT BOMBS AND ";
+    else message = global.mPress+" "+ scrGetKey(global.keyItemVal) + " " + global.mToselectbombsand;
+    if (global.gamepadOn) message2 =  global.mPress+" "+ scrGetJoy(global.joyAttackVal)+ " " + global.mTouseit;
+    else message2 =  global.mPress+" "+ scrGetKey(global.keyAttackVal) + " " + global.mTouseit;
+
+}
+else if (x == 96 and y == 256)
+{
+    message = global.mTutorial12//"THERE'S LOTS MORE AHEAD!";
+    message2 = global.mTutorial13//"USE YOUR WITS AND BEWARE OF TRAPS!";
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (drawStatus == 1)
+{
+    draw_set_font(global.myFont);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false,  "SPELUNKY", true);
+}
+else if (drawStatus == 2)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false, global.mAgameby, true);//"A GAME BY"
+    // draw_set_font(global.myFontSmall);
+    draw_set_color(c_white);
+    scrDrawText(64, 32, 2, false, "DEREK YU", true);
+}
+else if (drawStatus == 3)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false,  "PLATFORM ENGINE", true);
+    draw_set_color(c_white);
+    scrDrawText(16, 24, 2, false,  "MARTIN PIECYK", true);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 40, 2, false,  "SOUND EFFECTS MADE USING", true);
+    draw_set_color(c_white);
+    scrDrawText(16, 48, 2, false,  "DR PETTER'S SFXR", true);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 64, 2, false,  "SCREEN SCALING CODE", true);
+    draw_set_color(c_white);
+    scrDrawText(16, 72, 2, false,  "CHEVYRAY", true);
+}
+else if (drawStatus == 4)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false,  "MUSIC BY", true);
+    draw_set_color(c_white);
+    scrDrawText(32, 32, 2, false,  "GEORGE BUZINKAI", true);
+    scrDrawText(32, 48, 2, false,  "JONATHAN PERRY", true);
+}
+else if (drawStatus == 5)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false,  "BETA TESTING BY", true);
+    draw_set_color(c_white);
+    scrDrawText(16, 24, 2, false,  "ANNABELLE K.", true);
+    scrDrawText(16, 32, 2, false,  "BENZIDO", true);
+    scrDrawText(16, 40, 2, false,  "CHUTUP", true);
+    scrDrawText(16, 48, 2, false,  "CORPUS", true);
+    scrDrawText(16, 56, 2, false,  "GENERALVALTER", true);
+    scrDrawText(16, 64, 2, false,  "GUERT", true);
+    scrDrawText(16, 72, 2, false,  "GRAHAM GORING", true);
+    scrDrawText(16, 80, 2, false,  "HAOWAN", true);
+    scrDrawText(16, 88, 2, false,  "HIDEOUS", true);
+    scrDrawText(16, 96, 2, false,  "INANE", true);
+    //
+    scrDrawText(128, 24, 2, false,  "INCREPARE", true);
+    scrDrawText(128, 32, 2, false,  "KAO", true);
+    scrDrawText(128, 40, 2, false,  "MARK JOHNS", true);
+    scrDrawText(128, 48, 2, false,  "MELLY", true);
+    scrDrawText(128, 56, 2, false,  "PAUL ERES", true);
+    scrDrawText(128, 64, 2, false,  "SUPER JOE", true);
+    scrDrawText(128, 72, 2, false,  "TANTAN", true);
+    scrDrawText(128, 80, 2, false,  "TEAM QUIGGAN", true);
+    scrDrawText(128, 88, 2, false,  "TERRY", true);
+    scrDrawText(128, 96, 2, false,  "XION", true);
+    scrDrawText(128, 104, 2, false,  "ZAPHOS", true);
+}
+else if (drawStatus == 6)
+{
+    draw_set_font(global.myFontSmall);
+    draw_set_color(c_yellow);
+    scrDrawText(16, 16, 2, false, global.mThanksforplaying, true);//"THANKS FOR PLAYING!"
+    // draw_set_font(global.myFontSmall);
+    draw_set_color(c_white);
+    scrDrawText(32, 32, 2, false, global.mSeeyounextadventure, true);//"SEE YOU NEXT ADVENTURE!"
+}
+
+if (fadeIn or fadeOut)
+{
+    draw_set_color(c_black);
+    draw_set_alpha(fadeLevel);
+    draw_rectangle(0, 0, 320, 240, false);
+    draw_set_alpha(1);
+}
+
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>
